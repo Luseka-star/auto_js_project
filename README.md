@@ -1,4 +1,4 @@
-# 🔧 Playwright Test Project – Unit 10  
+# 🔧 Playwright Test Project
 **Course**: Yet Another JS Course  
 **Date**: July 28  
 
