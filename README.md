@@ -1,6 +1,5 @@
 # 🔧 Playwright Test Project
-**Course**: Yet Another JS Course  
-**Date**: July 28  
+
 
 ## 📋 Summary
 
@@ -8,7 +7,7 @@
 Проєкт буде використовуватись для виконання практичних завдань протягом кількох тижнів курсу.
 
 ## 📁 Структура проєкту
-
+```bash
 .
 ├── tests/ # Тестові файли
 ├── playwright.config.ts
@@ -16,60 +15,53 @@
 ├── tsconfig.json
 ├── .gitignore
 └── README.md
+```
 
-less
-Copy
-Edit
 
-## 🚀 Як запустити
+## 🚀 Як запустити цей проект
 
-> ⚠️ Встанови [Node.js](https://nodejs.org/) перед початком роботи
+1. Клонуй репозиторій та перейди в папку проєкту:
 
-1. Клонуй репозиторій:
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-Встанови залежності:
+git clone https://github.com/Luseka-star/auto_js_project.git
+cd auto_js_project
+git checkout Unit-10
+```
 
-bash
-Copy
-Edit
-npm install
-Запусти тести:
+2. Встанови залежності:
+   ```bash
 
-bash
-Copy
-Edit
-npx playwright test
+   npm install
+   ```
+
+3. Встанови браузери для Playwright:
+    ```bash
+      npx playwright install
+   ```
+   
+Запусти всі тести:
+  ```bash
+        npx playwright test
+   ```
+
+
+
 ⚙️ Технології
 Playwright
-
 TypeScript
-
 Node.js
 
 ❌ .gitignore
 У репозиторії налаштовано .gitignore, який ігнорує:
-
+```bash
 node_modules/
-
 .playwright/
-
 test-results/
 
-інші згенеровані файли, які не варто трекати
-
+```
 🛠 Поради
 Не пуш у main – працюємо в окремій гілці
 
-Код має бути чистим, без зайвого
 
-На цьому етапі не використовуємо Page Object Pattern або складні підходи
 
-📚 Корисні посилання
-Playwright Docs – Getting Started
-
-Playwright Best Practices
-
-YouTube: First Playwright test
 
