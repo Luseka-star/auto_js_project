@@ -1,0 +1,29 @@
+{
+  "name": "auto_js_project",
+  "version": "1.0.0",
+  "description": "**Course**: Yet Another JS Course   **Date**: July 28",
+  "main": "index.js",
+  "scripts": {
+    "test-login": "npx playwright test tests/login.spec.ts",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luseka-star/auto_js_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luseka-star/auto_js_project/issues"
+  },
+  "homepage": "https://github.com/Luseka-star/auto_js_project#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
+  }
+}
