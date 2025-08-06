@@ -21,17 +21,11 @@ git clone https://github.com/Luseka-star/auto_js_project.git
 cd auto_js_project
 ```
 
-Ініціалізувати Playwright-проєкт (якщо ще не зроблено)
-
-```bash
-npm init playwright@latest
-```
-Це автоматично створить playwright.config.ts, package.json, tests/, приклади тестів та налаштує базову структуру.
-
 Встановити залежності
 
 ```bash
 npm install
+npm init playwright@latest
 ```
 
 Встановити браузери для Playwright
