@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test-login": "npx playwright test tests/login.spec.ts",
-    "lint": "npx eslint ."
+    "lint": "npx eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/Luseka-star/auto_js_project#readme",
   "devDependencies": {
-    "@eslint/js": "^9.32.0",
+    "@eslint/js": "^9.33.0",
     "@playwright/test": "^1.54.2",
     "@types/node": "^24.1.0",
-    "eslint": "^9.32.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-playwright": "^2.2.2",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.0"
+    "typescript-eslint": "^8.39.1"
   }
 }

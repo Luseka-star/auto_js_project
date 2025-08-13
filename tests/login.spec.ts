@@ -1,14 +1,38 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/login.page';
+import { AccountPage } from '../pages/account.page';
+import { HomePage } from '../pages/home.page';
+import { ProductPage } from '../pages/product.page';
 
-test('Verify login of existed user', async ({ page }) => {
+
+
+
+test('Verify success login of existed user', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const accountPage = new AccountPage(page);
+  
   await page.goto('/auth/login');
-  await page.getByRole('textbox', { name: 'Email address'}).fill('customer@practicesoftwaretesting.com');
-  await page.getByRole('textbox', { name: 'Password'}).fill('welcome01');
-  await page.getByRole('button', {name: 'Login'}).click();
 
+  await loginPage.performLogin('customer@practicesoftwaretesting.com', 'welcome01');
   await expect(page).toHaveURL('/account');
-  await expect(page.getByRole('heading', { name: 'My account'})).toContainText('My account');
-  await expect(page.getByRole('button', { name: 'Jane Doe'})).toBeVisible();
+  await expect(accountPage.heading).toContainText('My account');
+  await expect(accountPage.header.accountName).toBeVisible();
 
 });
   
+test('Verify product details and buttons on product page', async({ page }) => {
+
+    const homePage = new HomePage(page);
+    const productPage = new ProductPage(page);
+
+
+    await page.goto('/');
+    await homePage.getCardByTitle('Combination Pliers').click();
+    await expect(page).toHaveURL(/\/product\//);
+    await expect(productPage.productName).toHaveText('Combination Pliers');
+    await expect(productPage.productPrice).toHaveText('14.15');
+    await expect(productPage.addToCartBtn).toBeVisible();
+    await expect(productPage.addToFavouritesBtn).toBeVisible();
+
+
+})
