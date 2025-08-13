@@ -19,12 +19,12 @@ test('Verify success login of existed user', async ({ page }) => {
   await expect(accountPage.header.accountName).toBeVisible();
 
 });
+
   
 test('Verify product details and buttons on product page', async({ page }) => {
 
     const homePage = new HomePage(page);
     const productPage = new ProductPage(page);
-
 
     await page.goto('/');
     await homePage.getCardByTitle('Combination Pliers').click();
@@ -33,6 +33,5 @@ test('Verify product details and buttons on product page', async({ page }) => {
     await expect(productPage.productPrice).toHaveText('14.15');
     await expect(productPage.addToCartBtn).toBeVisible();
     await expect(productPage.addToFavouritesBtn).toBeVisible();
-
 
 })
