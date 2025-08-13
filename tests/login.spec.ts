@@ -11,6 +11,7 @@ test('Verify success login of existed user', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const accountPage = new AccountPage(page);
   
+  
   await page.goto('/auth/login');
 
   await loginPage.performLogin('customer@practicesoftwaretesting.com', 'welcome01');
