@@ -8,12 +8,12 @@ on:
       - main
     paths:
       - 'tests/*.ts'
-    pull_request:
-    
+  pull_request:
     branches:
       - main
     paths:
       - 'tests/*.ts'
+
 jobs:
   test:
     uses: ./.github/workflows/reusable.yml
