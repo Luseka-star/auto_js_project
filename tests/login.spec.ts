@@ -25,7 +25,6 @@ test('Verify product details and buttons on product page', async({ page }) => {
     const homePage = new HomePage(page);
     const productPage = new ProductPage(page);
 
-    
     await page.goto('/');
     await homePage.getCardByTitle('Combination Pliers').click();
     await expect(page).toHaveURL(/\/product\//);
