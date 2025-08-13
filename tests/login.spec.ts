@@ -20,7 +20,6 @@ test('Verify success login of existed user', async ({ page }) => {
 
 });
 
-  
 test('Verify product details and buttons on product page', async({ page }) => {
 
     const homePage = new HomePage(page);
