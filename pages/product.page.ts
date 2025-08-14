@@ -20,18 +20,18 @@ export class ProductPage{
         this.page = page;
         this.header = new HeaderFragment(page);
         this.productImg = this.page.locator('.figure-img.img-fluid');
-        this.productName = this.page.locator('[data-test="product-name"]');
-        this.productPrice = this.page.locator('[data-test="unit-price"]');
-        this.productDescr = this.page.locator('[data-test="product-description"]');
-        this.addToCartBtn = this.page.locator('[data-test="add-to-cart"]');
-        this.addToFavouritesBtn = this.page.locator('[data-test="add-to-favorites"]');
-        this.decreaseQntty = this.page.locator('[data-test="decrease-quantity"]');
-        this.productQntty = this.page.locator('[data-test="quantity"]');
-        this.increaseQntty = this.page.locator('[data-test="increase-quantity"]');
+        this.productName = this.page.getByTestId('product-name');
+        this.productPrice = this.page.getByTestId('unit-price');
+        this.productDescr = this.page.getByTestId('product-description');
+        this.addToCartBtn = this.page.getByTestId('add-to-cart');
+        this.addToFavouritesBtn = this.page.getByTestId('add-to-favorites');
+        this.decreaseQntty = this.page.getByTestId('decrease-quantity');
+        this.productQntty = this.page.getByTestId('quantity');
+        this.increaseQntty = this.page.getByTestId('increase-quantity');
     }
 
 
     returnHashtagLocator(text: string): Locator{
-        return this.page.locator(`.badge.rounded-pill:has-text("${text}")`);
+        return this.page.locator('.badge.rounded-pill').filter({has: this.page.getByText(text)});
     }
 }

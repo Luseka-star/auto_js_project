@@ -3,14 +3,14 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import playwright from 'eslint-plugin-playwright';
-import { defineConfig, globalIgnores } from "eslint/config";
+//import { defineConfig, globalIgnores } from "eslint/config";
 
 
 export default tseslint.config(
-  globalIgnores([
-		"!node_modules/", // unignore `node_modules/` directory
-		"node_modules/*", // ignore its content
-	]),
+  // globalIgnores([
+	// 	"!node_modules/", // unignore `node_modules/` directory
+	// 	"node_modules/*", // ignore its content
+	// ]),
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   {

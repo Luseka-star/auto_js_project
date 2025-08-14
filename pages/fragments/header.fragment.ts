@@ -27,22 +27,22 @@ export class HeaderFragment{
 
     constructor(page: Page){
         this.page = page;
-        this.accountName = page.locator('[data-test="nav-menu"]');
-        this.logoLink = page.locator('[class="navbar-brand"]');
-        this.navigationHome = page.locator ('[data-test="nav-home"]');
-        this.navigationCategories = page.locator('[data-test="nav-categories"]');
-        this.navigationContact = page.locator('[data-test="nav-contact"]');
-        this.languageSelect = page.locator('[data-test="language-select"]');
-        this.myAccount = page.locator('[data-test="nav-my-account"]');
-        this.myFavorites = page.locator('[data-test="nav-my-favorites"]');
-        this.myProfile = page.locator('[data-test="nav-my-profile"]');
-        this.myInvoices = page.locator('[data-test="nav-my-invoices"]');
-        this.myMessages = page.locator('[data-test="nav-my-messages"]');
-        this.signOut = page.locator('[data-test="nav-sign-out"]');
+        this.accountName = page.getByTestId('nav-menu');
+        this.logoLink = page.locator('.navbar-brand');
+        this.navigationHome = page.getByTestId ('nav-home');
+        this.navigationCategories = page.getByTestId('nav-categories');
+        this.navigationContact = page.getByTestId('nav-contact');
+        this.languageSelect = page.getByTestId('language-select');
+        this.myAccount = page.getByTestId('nav-my-account');
+        this.myFavorites = page.getByTestId('nav-my-favorites');
+        this.myProfile = page.getByTestId('nav-my-profile');
+        this.myInvoices = page.getByTestId('nav-my-invoices');
+        this.myMessages = page.getByTestId('nav-my-messages');
+        this.signOut = page.getByTestId('nav-sign-out');
     }
 
     getLanguageLocator(lang: LanguageCode): Locator{
-        return this.page.locator(`[data-test="lang-${lang}"]`);
+        return this.page.getByTestId(`lang-${lang}`);
     }
 
     async showDropdownMenu(){

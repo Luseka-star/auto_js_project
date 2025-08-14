@@ -18,6 +18,6 @@ export class HomePage{
     }
 
      getCardByTitle(title: string): Locator {
-        return this.page.locator(`.card:has(h5:has-text("${title}"))`);
+        return this.page.locator('.card').filter({ has: this.page.getByText(title) });
     }
 }
