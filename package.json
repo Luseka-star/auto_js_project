@@ -4,7 +4,8 @@
   "description": "**Course**: Yet Another JS Course   **Date**: July 28",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/login.spec.ts",
+    "test-1": "npx playwright test tests/1-login.spec.ts",
+    "test-2": "npx playwright test tests/2-check-product.spec.ts",
     "lint": "npx eslint . --fix"
   },
   "repository": {
