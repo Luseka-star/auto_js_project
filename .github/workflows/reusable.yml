@@ -1,12 +1,5 @@
 name: Reusable workflow
 
-on:
-  workflow_call:
-    inputs:
-      npm-command:
-        required: true
-        type: string
-
 jobs:
   reusable_job:
     runs-on: ubuntu-latest
