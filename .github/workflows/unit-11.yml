@@ -1,9 +1,0 @@
-name: Test for Unit 11
-
-run-name: Running tests for Unit 11
-
-jobs:
-  test:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      npm-command: 'test'
