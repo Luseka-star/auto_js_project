@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
 import { AccountPage } from '../pages/account.page';
-import users from './test-data/login-credentials.json';
+import { users } from './test-data/users';
 
 
 
@@ -16,7 +16,7 @@ test('Verify success login of existed user', async ({ page }) => {
   
   await page.goto('/auth/login');
 
-  await loginPage.performLogin(users[0].username, users[0].password);
+  await loginPage.performLogin(users[0].email, users[0].password);
   await expect(page).toHaveURL('/account');
   await expect(accountPage.heading).toContainText('My account');
   await expect(accountPage.header.accountName).toBeVisible();
