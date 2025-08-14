@@ -15,7 +15,7 @@ export class AccountPage{
     constructor(page:Page){
         this.page = page;
         this.header = new HeaderFragment(page);
-        this.heading = page.getByRole('heading', { name: 'My account'});
+        this.heading = page.locator('[data-test="nav-menu"]');
         this.favorites = page.getByRole('button', { name: 'Favorites'});
         this.profile = page.getByRole('button', { name: 'Profile'});
         this.invoices = page.getByRole('button', { name: 'Invoices'});
