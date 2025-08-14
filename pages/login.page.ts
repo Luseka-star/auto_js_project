@@ -12,9 +12,9 @@ export class LoginPage {
     constructor (page: Page){
         this.page = page;
         this.header = new HeaderFragment(page);
-        this.emailField = this.page.getByRole('textbox', { name: 'Email address'});
-        this.passwordField = this.page.getByRole('textbox', { name: 'Password'});
-        this.submitButton  = this.page.getByRole('button', {name: 'Login'});
+        this.emailField = this.page.locator('[data-test="email"]');
+        this.passwordField = this.page.locator('[data-test="password"]');
+        this.submitButton  = this.page.locator('[data-test="login-submit"]');
     }
 
     async performLogin(email: string, password: string): Promise<void>{

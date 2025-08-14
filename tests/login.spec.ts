@@ -11,10 +11,10 @@ test('Verify success login of existed user', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const accountPage = new AccountPage(page);
   
-  await page.goto('/auth/login');
+  await page.goto('https://practicesoftwaretesting.com/auth/login');
 
   await loginPage.performLogin('customer@practicesoftwaretesting.com', 'welcome01');
-  await expect(page).toHaveURL('/account');
+  await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
   await expect(accountPage.heading).toContainText('My account');
   await expect(accountPage.header.accountName).toBeVisible();
 
@@ -25,7 +25,7 @@ test('Verify product details and buttons on product page', async({ page }) => {
     const homePage = new HomePage(page);
     const productPage = new ProductPage(page);
 
-    await page.goto('/');
+    await page.goto('https://practicesoftwaretesting.com');
     await homePage.getCardByTitle('Combination Pliers').click();
     await expect(page).toHaveURL(/\/product\//);
     await expect(productPage.productName).toHaveText('Combination Pliers');
