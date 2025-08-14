@@ -6,13 +6,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'tests/*.ts'
   pull_request:
     branches:
       - main
-    paths:
-      - 'tests/*.ts'
 
 jobs:
   test:
