@@ -20,4 +20,8 @@ export class HomePage{
      getCardByTitle(title: string): Locator {
         return this.page.locator('.card').filter({ has: this.page.getByText(title) });
     }
+
+    async openProduct(name: string) {
+        await this.getCardByTitle(name).click();
+    }
 }
