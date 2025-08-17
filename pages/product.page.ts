@@ -32,6 +32,6 @@ export class ProductPage{
 
 
     returnHashtagLocator(text: string): Locator{
-        return this.page.locator('.badge.rounded-pill').filter({has: this.page.getByText(text)});
+       return this.page.locator('.badge.rounded-pill').filter({ hasText: text });
     }
 }
