@@ -1,3 +1,5 @@
+
+
 import { Locator, Page } from "@playwright/test";
 import { HeaderFragment } from './fragments/header.fragment';
 
@@ -14,6 +16,11 @@ export class ProductPage{
     decreaseQntty: Locator;
     productQntty: Locator;
     increaseQntty: Locator;
+    productAdded: Locator;
+    productAddedText: Locator;
+    cartProductNumber: Locator;
+    
+
 
 
     constructor(page: Page){
@@ -28,11 +35,18 @@ export class ProductPage{
         this.decreaseQntty = this.page.getByTestId('decrease-quantity');
         this.productQntty = this.page.getByTestId('quantity');
         this.increaseQntty = this.page.getByTestId('increase-quantity');
+        this.productAdded = this.page.locator('.toast-container');
+        this.productAddedText = this.page.locator('.toast-success');
+        this.cartProductNumber = this.page.getByTestId('cart-quantity');
+
     }
 
 
     returnHashtagLocator(text: string): Locator{
        return this.page.locator('.badge.rounded-pill').filter({ hasText: text });
     }
+
+
+
 
 }
