@@ -29,25 +29,25 @@ test.describe('Verify user can perform sorting by', () => {
   });
 
   const priceSorts = [
-    { label: 'Price (Low - High)', sort: sortOptions.priceASC },
-    { label: 'Price (High - Low)', sort: sortOptions.priceDESC },
-  ];
+  { label: 'Price (Low - High)', sort: sortOptions.priceASC, compareFn: (a: number, b: number) => a - b },
+  { label: 'Price (High - Low)', sort: sortOptions.priceDESC, compareFn: (a: number, b: number) => b - a },
+];
 
-  priceSorts.forEach(({ label, sort }) => {
+test.describe('Verify user can perform sorting by', () => {
+  priceSorts.forEach(({ label, sort, compareFn }) => {
     test(`Sort products by ${label}`, async ({ page }) => {
       const homePage = new HomePage(page);
 
       await page.goto('/');
-
-      await homePage.sortBy(sort);
       await expect(homePage.cards.first()).toBeVisible();
 
-      const productPrices = await homePage.getListProductPrices();
-      const expectedPrices = [...productPrices].sort((a, b) =>
-        sort === sortOptions.priceASC ? a - b : b - a
-      );
+      await homePage.sortBy(sort);
 
-      expect(productPrices).toEqual(expectedPrices);
+      const productPrices = await homePage.waitForSorted(compareFn, 7000, 200);
+
+      expect(homePage.isSorted(productPrices, compareFn)).toBeTruthy();
     });
   });
+});
+
 });

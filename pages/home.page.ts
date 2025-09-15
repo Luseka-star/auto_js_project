@@ -69,4 +69,24 @@ export class HomePage {
         return await this.getListProductNames();
     }
 
+
+  isSorted(arr: number[], compareFn: (a: number, b: number) => number): boolean {
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (compareFn(arr[i], arr[i + 1]) > 0) return false;
+    }
+    return true;
+  }
+
+  async waitForSorted(compareFn: (a: number, b: number) => number, timeout = 5000, interval = 200): Promise<number[]> {
+    const start = Date.now();
+    let prices = await this.getListProductPrices();
+
+    while (!this.isSorted(prices, compareFn) && Date.now() - start < timeout) {
+      await this.page.waitForTimeout(interval);
+      prices = await this.getListProductPrices();
+    }
+
+    return prices;
+  }
+
 }
