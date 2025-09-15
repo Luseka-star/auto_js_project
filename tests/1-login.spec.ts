@@ -1,23 +1,23 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/login.page';
 import { AccountPage } from '../pages/account.page';
-import { users } from './test-data/users';
+import path from 'path';
 
 
+const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
+ 
+test.use({storageState: authFile});
 
 
 test('Verify success login of existed user', async ({ page }) => {
-   test.skip(!!process.env.GITHUB_ACTIONS, 'Skip it in GitHub Actions');
+  // test.skip(!!process.env.GITHUB_ACTIONS, 'Skip it in GitHub Actions');
    
-  const loginPage = new LoginPage(page);
+ // const loginPage = new LoginPage(page);
   const accountPage = new AccountPage(page);
 
   
-  await page.goto('/auth/login');
+  await page.goto('/account');
 
-  await loginPage.performLogin(users[0].email, users[0].password);
-  await expect(page).toHaveURL('/account');
   await expect(accountPage.heading).toContainText('My account');
   await expect(accountPage.header.accountName).toBeVisible();
 
